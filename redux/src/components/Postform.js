@@ -9,17 +9,37 @@ class Postform extends Component {
         };
         
         this.onChange = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
-
     onChange(e) {
         this.setState({ [e.target.name]: e.target.value })
+    }
+    onSubmit(e) {
+        // prevent the default action?
+        e.preventDefault();
+
+        const post = {
+            title: this.state.title,
+            body: this.state.body
+        }
+        // I need to stringify this "post" object 
+
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        body: JSON.stringify(post),
+        })
+        .then((response) => response.json())
+        .then(data => console.log(data));
     }
 
     render() {
         return (
             <div>
                 <h1>Add Post</h1>
-                <form>
+                <form onSubmit={this.onSubmit}>
                     <div>
                         <label>Title: </label><br />
                         <input type="text" name="title" onChange={this.onChange} value={this.state.title}/>

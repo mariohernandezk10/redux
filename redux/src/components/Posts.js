@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class Posts extends Component {
     constructor(props) {
@@ -10,9 +10,10 @@ class Posts extends Component {
 
     componentWillMount() {
         // URL should be inserted inside fetch from the API
-        fetch('https://jsonplaceholder.typeicode.com/posts')
+        fetch('https://jsonplaceholder.typicode.com/posts/')
         .then(res => res.json())
-        .then(data => this.setState({posts: data}));
+        .then(data => console.log(data))
+        // .then(data => this.setState({posts: data}));
     }
 
     render() {
@@ -22,8 +23,6 @@ class Posts extends Component {
                 <p>{post.body}</p>
             </div>
         ))
-        console.log(postItems);
-
         return (
             <div>
                 <h1>Posts</h1>
