@@ -8,7 +8,7 @@ class Posts extends Component {
         }
     }
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         // URL should be inserted inside fetch from the API
         fetch('https://jsonplaceholder.typicode.com/posts/')
         .then(res => res.json())
