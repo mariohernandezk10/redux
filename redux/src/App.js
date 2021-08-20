@@ -1,4 +1,5 @@
 import './App.css';
+import React, {Component} from 'react';
 import Posts from "./components/Posts";
 import Postform from "./components/Postform";
 import { Provider } from "react-redux";
@@ -29,16 +30,18 @@ import store from './store'
 // Old code due to adding a console.log
 
 
-function App() {
-  return (
-    <Provider store={store}>
-      <div className="App">
-          <Postform />
-          <hr />
-          <Posts />
-      </div>
-    </Provider>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <div className="App">
+            <Postform />
+            <hr />
+            <Posts />
+        </div>
+      </Provider>
+    );
+  }
 }
 
 export default App;
