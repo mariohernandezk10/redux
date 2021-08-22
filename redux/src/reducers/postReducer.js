@@ -13,13 +13,13 @@ export default function postReducer(state = initialState, action) {
             return {
                 ...state,
                 items: action.payload
-                // "action.payload" is the array of 100 objects
+                // "action.payload" is the array of 100 objects = all posts
             };
         case NEW_POST:
             return {
                 ...state,
                 item: action.payload
-                // "action.payload" should be an object
+                // "action.payload" should be an object = single post
             };
             default:
             return state;

@@ -18,4 +18,6 @@ const store = createStore(
     )
 );
 
+// "compose()" is for REDUX DEVTOOLS
+
 export default store;

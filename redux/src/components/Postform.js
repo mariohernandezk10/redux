@@ -6,7 +6,10 @@ import {createPost} from '../actions/postActions';
 class Postform extends Component {
     constructor(props) {
         super(props);
-        
+        this.state = {
+            title: "",
+            body: ""
+        }
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
@@ -17,45 +20,17 @@ class Postform extends Component {
         // prevent the default action?
         e.preventDefault();
 
-        // const post = {
-        //     title: this.state.title,
-        //     body: this.state.body
-        // }
-        // I need to stringify this "post" object 
-
-        // fetch('https://jsonplaceholder.typicode.com/posts', {
-        // method: 'POST',
-        // headers: {
-        //     'Content-type': 'application/json; charset=UTF-8',
-        //   },
-        // body: JSON.stringify(post),
-        // })
-        // .then((res) => res.json())
-        // .then(data => console.log(data));
-        // console.log(this.props);
-        // console.log(this.props.createPost({
-        //     title: "HELLO",
-        //     body: "WELCOME"
-        // }));
-
-        // console.log(createPost(e));
-        // console.log(createPost(this.state));
-        // this.props.createPost({
-        //     title: "HELLO",
-        //     body: "WELCOME"
-        // });
+        // Created "post" using "this.state"
+        const post = {
+            title: this.state.title,
+            body: this.state.body
+        }
+        // grabs the createPost function and uses the "post" const
+        this.props.createPost(post);
+        // "this.props" is an object with posts, newPosts, createPost
+        // "this.props" = {posts: [{}], newPost: {}, createPost: fx
+        
     }
-
-    componentWillMount() {
-        console.log(this.props);
-        this.props.createPost();
-    }
-
-    // componentWillReceiveProps(nextProps) {
-    //     if(nextProps.newPost) {
-    //         this.props.posts.unshift(nextProps.newPost);
-    //     }
-    // }
 
     render() {
         return (
@@ -79,15 +54,10 @@ class Postform extends Component {
     }
 }
 
+// tests the "Postform" class using the "prop-types" npm package on line 2
 Postform.propTypes = {
-    createPost: PropTypes.func.isRequired,
-    // newPost: PropTypes.object.isRequired
+    createPost: PropTypes.func.isRequired
 }
+// will give an error if createPost is not a function, etc
 
-// need to pass the current state here
-const mapStateToProps = state => ({
-    posts: state.posts.items,
-    newPost: state.posts.item
-})
-
-export default connect(mapStateToProps, {createPost})(Postform);
+export default connect(null, {createPost})(Postform);

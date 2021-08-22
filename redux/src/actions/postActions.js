@@ -38,10 +38,9 @@ export const createPost = (postData) => dispatch => {
         body: JSON.stringify(postData),
         },)
         .then((res) => res.json())
-        // .then((post) => console.log(post))
         // "post" is an object 
-        // "post" = {id: 101}
-        // "post" should be {body: "This is the body", title: "The Title"}
+        // "post" = {body: "This is the body", title: "Title", id: 101}
+        // .then((post) => console.log(post))
         .then(post => dispatch({
             // this is where the types.js file is being used... type: NEW_POST
             type: NEW_POST,
@@ -52,3 +51,5 @@ export const createPost = (postData) => dispatch => {
 }
 
 // Both postActions.js and types.js files are working together to create
+
+// SIDE NOTE: TOO MANY ".then()" INSIDE THE FETCH WILL GIVE AN ERROR
