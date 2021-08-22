@@ -6,7 +6,7 @@
 This app allows you to create and post notes.
 
 Screenshot:
-![alt text](public/img/index.png)
+![alt text](redux/public/img/index.png)
 ​
 ## Table of Contents 
 ​​
