@@ -33,21 +33,44 @@ class Postform extends Component {
     }
 
     render() {
+        // it's common for CSS classes to depend on the component props or state
+
+        // let className = "menu";
+        // if(this.props.isActive) {
+        //     className += ' menu-active';
+        // }
+
+        // Using this:
+        
+        // return <span className={className}>Menu</span>
+        
         return (
-            <div>
+            <div className="form-container">
                 <h1>Add Post</h1>
-                <form onSubmit={this.onSubmit}>
-                    <div>
-                        <label>Title: </label><br />
-                        <input type="text" name="title" onChange={this.onChange} value={this.props.title}/>
+                <form onSubmit={this.onSubmit} action="action_page.php">
+                    <div className="row">
+                        <div className="col-25">
+                            <label>Title: </label>
+                        </div>
+                        <br />
+                        <div  className="col-75">
+                            <input type="text" name="title" onChange={this.onChange} value={this.props.title}/>
+                        </div>
                     </div>
                     <br />
-                    <div>
-                        <label>Body: </label><br />
-                        <textarea name="body" onChange={this.onChange} value={this.props.body}/>
+                    <div className="row">
+                        <div className="col-25">
+                            <label>Body: </label>
+                        </div>
+                        <br />
+                        <div className="col-75">
+                            <textarea name="body" onChange={this.onChange} value={this.props.body}/>
+                        </div>
                     </div>
                     <br />
-                    <button type="submit">Submit</button>
+                    <div className="row">
+                        <button type="submit">Submit</button>
+                    </div>
                 </form>
             </div>
         )
