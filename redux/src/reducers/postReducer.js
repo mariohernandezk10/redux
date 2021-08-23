@@ -1,7 +1,9 @@
 import {FETCH_POSTS, NEW_POST } from '../actions/types';
 
 const initialState = {
+    // items is that array of 100 objects
     items: [],
+    // item is the new post
     item: {}
 };
 
