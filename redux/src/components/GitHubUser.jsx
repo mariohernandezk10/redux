@@ -16,7 +16,7 @@ export default function GitHubUser({login}) {
 
     if (data) {
         return (
-            <div>
+            <div data={data}>
                 {/* {JSON.stringify(data)} */}
                 <h1>Hi my name is {data.name}</h1>
                 <img src={data.avatar_url} alt="user" width={100}/>
