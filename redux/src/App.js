@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import Posts from "./components/Posts";
 import Postform from "./components/Postform";
 import Checkbox from "./components/Checkbox"
+import GitHubUser from './components/GitHubUser';
 import { Provider } from "react-redux";
 import store from './store'
 
@@ -11,6 +12,8 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="App">
+          <GitHubUser login="mariohernandezk10" />
+          <hr />
           <Checkbox />
           <hr />
           <Postform />
