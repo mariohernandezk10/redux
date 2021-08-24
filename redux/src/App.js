@@ -12,6 +12,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="App">
+          {/* try user: nwscott81 */}
           <GitHubUser login="mariohernandezk10" />
           <hr />
           <Checkbox />
